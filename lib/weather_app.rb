@@ -7,7 +7,7 @@ class WeatherApp
     CurrentWeather.new
   end
 
-  # def five_day_weather_service
-  #   MultiplePostcodeService.new
-  # end
+  def five_day_weather_service
+    FiveDayWeather.new
+  end
 end

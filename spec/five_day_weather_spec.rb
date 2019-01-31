@@ -1,16 +1,12 @@
 require 'spec_helper'
 
 describe 'WeatherApp' do
-  context 'current weather app works correctly' do
 
+  context 'test the five day weather service works correctly' do
     before(:all) do
-      @WeatherApp = WeatherApp.new.current_weather_service
+      @WeatherApp = WeatherApp.new.five_day_weather_service
       @WeatherApp.retrieve_current_weather_name('London')
     end
-
-    # it 'should retrieve the data as a hash' do
-    #   expect(@WeatherApp).to be_kind_of(Hash)
-    # end
 
     it 'should retrieve the coordinates as a hash' do
       expect(@WeatherApp.retrieve_coord).to be_kind_of(Hash)
@@ -120,6 +116,5 @@ describe 'WeatherApp' do
     it 'should retrieve the cod as an integer' do
       expect(@WeatherApp.retrieve_cod).to be_kind_of(Integer)
     end
-
-  end
+  end 
 end
