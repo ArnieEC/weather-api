@@ -103,6 +103,30 @@ class FiveDayWeather
     }
     list_main_humidity
   end
+
+  def retrieve_list_main_temp_kf
+    list_main_temp_kf = []
+    retrieve_list_main.each{ |list| 
+      list_main_temp_kf << list['temp_kf']
+    }
+    list_main_temp_kf
+  end
+
+  def retrieve_list_weather
+    list_weather = []
+    retrieve_list.each{ |list| 
+      list_weather << list['weather']
+    }
+    list_weather
+  end
+
+  def retrieve_list_weather_id
+    list_weather_id = []
+    retrieve_list_weather.each{ |list| 
+      list_weather_id << list['id']
+    }
+    list_weather_id
+  end
 end
 
 # test = FiveDayWeather.new

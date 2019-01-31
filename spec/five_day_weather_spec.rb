@@ -77,6 +77,24 @@ describe 'WeatherApp' do
         expect(list_main_humidity).to be_kind_of(Float) | be_kind_of(Integer)
       end
     end
+
+    it 'should return all the temp_kf (internal parameter) from the main hash inside the list array as floats' do
+      @WeatherApp.retrieve_list_main_temp_kf.each do |list_main_temp_kf|
+        expect(list_main_temp_kf).to be_kind_of(Float) | be_kind_of(Integer)
+      end
+    end
+
+    it 'should return all weather from the list array as a hash' do
+      @WeatherApp.retrieve_list_weather.each do |list_main_weather|
+        expect(list_main_weather).to be_kind_of(Array)
+      end
+    end
+
+    it 'should return all weather ids from the weather array from the list array as a hash' do
+      @WeatherApp.retrieve_list_weather_id.each do |list_main_weather_id|
+        expect(list_main_weather_id).to be_kind_of(Integer)
+      end
+    end
     
   end
 
