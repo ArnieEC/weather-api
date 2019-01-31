@@ -90,12 +90,29 @@ describe 'WeatherApp' do
       end
     end
 
-    it 'should return all weather ids from the weather array from the list array as a hash' do
+    it 'should return all weather ids from the weather array from the list array as a integer' do
       @WeatherApp.retrieve_list_weather_id.each do |list_main_weather_id|
         expect(list_main_weather_id).to be_kind_of(Integer)
       end
     end
-    
+
+    it 'should return all weather types from the weather array from the list array as a string' do
+      @WeatherApp.retrieve_list_weather_main.each do |list_main_weather_main|
+        expect(list_main_weather_main).to be_kind_of(String)
+      end
+    end
+
+    it 'should return all weather descriptions from the weather array from the list array as a string' do
+      @WeatherApp.retrieve_list_weather_description.each do |list_main_weather_description|
+        expect(list_main_weather_description).to be_kind_of(String)
+      end
+    end
+
+    it 'should return all weather icons from the weather array from the list array as a string' do
+      @WeatherApp.retrieve_list_weather_icon.each do |list_main_weather_icon|
+        expect(list_main_weather_icon).to be_kind_of(String)
+      end
+    end
   end
 
   context 'current weather app works correctly' do

@@ -122,13 +122,37 @@ class FiveDayWeather
 
   def retrieve_list_weather_id
     list_weather_id = []
-    retrieve_list_weather.each{ |list| 
-      list_weather_id << list['id']
+    retrieve_list.each{ |list| 
+      list_weather_id << list['weather'][0]['id']
     }
     list_weather_id
+  end
+
+  def retrieve_list_weather_main
+    list_weather_main = []
+    retrieve_list.each{ |list| 
+      list_weather_main << list['weather'][0]['main']
+    }
+    list_weather_main
+  end
+
+  def retrieve_list_weather_description
+    list_weather_description = []
+    retrieve_list.each{ |list| 
+      list_weather_description << list['weather'][0]['description']
+    }
+    list_weather_description
+  end
+
+  def retrieve_list_weather_icon
+    list_weather_icon = []
+    retrieve_list.each{ |list| 
+      list_weather_icon << list['weather'][0]['icon']
+    }
+    list_weather_icon
   end
 end
 
 # test = FiveDayWeather.new
 # test.retrieve_five_day_weather_name('London')
-# p test.retrieve_list_main_temp
+# p test.retrieve_list_weather_main

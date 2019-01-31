@@ -1,11 +1,13 @@
 require 'httparty'
 require 'json'
+require 'dotenv'
+Dotenv.load('.env')
 
 class CurrentWeather
   include HTTParty
 
-  APIKEY='360b2ae91268e0f77205a5b5d08c3b63'
-  
+  APIKEY = ENV['WEATHER_API_KEY']
+
   base_uri 'https://api.openweathermap.org/data/2.5'
 
   def retrieve_current_weather_name(city_name)
