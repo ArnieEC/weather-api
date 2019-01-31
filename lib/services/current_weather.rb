@@ -16,6 +16,10 @@ class CurrentWeather
     @current_weather_data = JSON.parse(self.class.get("/weather?id=#{id}&appid=#{APIKEY}").body)
   end
 
+  def retrieve_results
+    @current_weather_data
+  end
+
   def retrieve_coord
     @current_weather_data['coord']
   end

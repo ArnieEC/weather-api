@@ -8,9 +8,9 @@ describe 'WeatherApp' do
       @WeatherApp.retrieve_current_weather_name('London')
     end
 
-    # it 'should retrieve the data as a hash' do
-    #   expect(@WeatherApp).to be_kind_of(Hash)
-    # end
+    it 'should retrieve the data as a hash' do
+      expect(@WeatherApp.retrieve_results).to be_kind_of(Hash)
+    end
 
     it 'should retrieve the coordinates as a hash' do
       expect(@WeatherApp.retrieve_coord).to be_kind_of(Hash)
@@ -148,9 +148,9 @@ describe 'WeatherApp' do
       @WeatherApp.retrieve_current_weather_id(2633485)
     end
 
-    # it 'should retrieve the data as a hash' do
-    #   expect(@WeatherApp).to be_kind_of(Hash)
-    # end
+    it 'should retrieve the data as a hash' do
+      expect(@WeatherApp.retrieve_results).to be_kind_of(Hash)
+    end
 
     it 'should retrieve the coordinates as a hash' do
       expect(@WeatherApp.retrieve_coord).to be_kind_of(Hash)

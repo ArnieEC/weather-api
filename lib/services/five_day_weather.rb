@@ -8,63 +8,103 @@ class FiveDayWeather
   
   base_uri 'https://api.openweathermap.org/data/2.5'
 
-  def retrieve_current_weather_name(city_name)
+  def retrieve_five_day_weather_name(city_name)
     @five_day_weather_data = JSON.parse(self.class.get("/forecast?q=#{city_name}&appid=#{APIKEY}").body)
   end
 
-  def retrieve_current_weather_id(id)
+  def retrieve_five_day_weather_id(id)
     @five_day_weather_data = JSON.parse(self.class.get("/forecast?id=#{id}&appid=#{APIKEY}").body)
-  end
-
-  def retrieve_coord
-    @five_day_weather_data['coord']
-  end
-
-  def retrieve_weather
-    @five_day_weather_data['weather']
-  end
-
-  def retrieve_base
-    @five_day_weather_data['base']
-  end
-
-  def retrieve_main
-    @five_day_weather_data['main']
-  end
-
-  def retrieve_visibility
-    @five_day_weather_data['visibility']
-  end
-
-  def retrieve_wind
-    @five_day_weather_data['wind']
-  end
-
-  def retrieve_clouds
-    @five_day_weather_data['clouds']
-  end
-
-  def retrieve_dt
-    @five_day_weather_data['dt']
-  end
-
-  def retrieve_sys
-    @five_day_weather_data['sys']
-  end
-
-  def retrieve_id
-    @five_day_weather_data['id']
-  end
-
-  def retrieve_name
-    @five_day_weather_data['name']
   end
 
   def retrieve_cod
     @five_day_weather_data['cod']
   end
-  
+
+  def retrieve_message
+    @five_day_weather_data['message']
+  end
+
+  def retrieve_cnt
+    @five_day_weather_data['cnt']
+  end
+
+  def retrieve_list
+    @five_day_weather_data['list']
+  end
+
+  def retrieve_list_dt
+    list_dt = []
+    retrieve_list.each{ |list| 
+      list_dt << list['dt']
+    }
+    list_dt
+  end
+
+  def retrieve_list_main
+    list_main = []
+    retrieve_list.each{ |list| 
+      list_main << list['main']
+    }
+    list_main
+  end
+
+  def retrieve_list_main_temp
+    list_main_temp = []
+    retrieve_list_main.each{ |list| 
+      list_main_temp << list['temp']
+    }
+    list_main_temp
+  end
+
+  def retrieve_list_main_temp_min
+    list_main_temp_min = []
+    retrieve_list_main.each{ |list| 
+      list_main_temp_min << list['temp_min']
+    }
+    list_main_temp_min
+  end
+
+  def retrieve_list_main_temp_max
+    list_main_temp_max = []
+    retrieve_list_main.each{ |list| 
+      list_main_temp_max << list['temp_min']
+    }
+    list_main_temp_max
+  end
+
+  def retrieve_list_main_pressure
+    list_main_pressure = []
+    retrieve_list_main.each{ |list| 
+      list_main_pressure << list['pressure']
+    }
+    list_main_pressure
+  end
+
+  def retrieve_list_main_sea_level
+    list_main_sea_level = []
+    retrieve_list_main.each{ |list| 
+      list_main_sea_level << list['sea_level']
+    }
+    list_main_sea_level
+  end
+
+  def retrieve_list_main_grnd_level
+    list_main_grnd_level = []
+    retrieve_list_main.each{ |list| 
+      list_main_grnd_level << list['grnd_level']
+    }
+    list_main_grnd_level
+  end
+
+  def retrieve_list_main_humidity
+    list_main_humidity = []
+    retrieve_list_main.each{ |list| 
+      list_main_humidity << list['humidity']
+    }
+    list_main_humidity
+  end
 end
 
-# test = CurrentWeather.new
-# p test.get_current_weather_name('London')['coord']
+# test = FiveDayWeather.new
+# test.retrieve_five_day_weather_name('London')
+# p test.retrieve_list_main_temp
