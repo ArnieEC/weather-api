@@ -113,6 +113,12 @@ describe 'WeatherApp' do
         expect(list_main_weather_icon).to be_kind_of(String)
       end
     end
+
+    it 'should return all the clouds from the list array as hashes' do
+      @WeatherApp.retrieve_list_clouds.each do |listclouds|
+        expect(listclouds).to be_kind_of(Hash)
+      end
+    end
   end
 
   context 'current weather app works correctly' do

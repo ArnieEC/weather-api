@@ -4,7 +4,7 @@ require 'json'
 class FiveDayWeather
   include HTTParty
 
-  APIKEY='360b2ae91268e0f77205a5b5d08c3b63'
+  APIKEY = ENV['WEATHER_API_KEY']
   
   base_uri 'https://api.openweathermap.org/data/2.5'
 
@@ -151,8 +151,24 @@ class FiveDayWeather
     }
     list_weather_icon
   end
+
+  def retrieve_list_clouds
+    list_clouds = []
+    retrieve_list.each{ |list| 
+      list_clouds << list['clouds']
+    }
+    list_clouds
+  end
+
+  def retrieve_list_clouds_all
+    list_clouds_all = []
+    retrieve_list.each{ |list| 
+      list_clouds_all << list['clouds']['all']
+    }
+    list_clouds_all
+  end
 end
 
-# test = FiveDayWeather.new
-# test.retrieve_five_day_weather_name('London')
-# p test.retrieve_list_weather_main
+test = FiveDayWeather.new
+test.retrieve_five_day_weather_name('London')
+p test.retrieve_list_weather_description
