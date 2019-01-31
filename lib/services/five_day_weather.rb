@@ -9,11 +9,11 @@ class FiveDayWeather
   base_uri 'https://api.openweathermap.org/data/2.5'
 
   def retrieve_current_weather_name(city_name)
-    @five_day_weather_data = JSON.parse(self.class.get("/weather?q=#{city_name}&appid=#{APIKEY}").body)
+    @five_day_weather_data = JSON.parse(self.class.get("/forecast?q=#{city_name}&appid=#{APIKEY}").body)
   end
 
   def retrieve_current_weather_id(id)
-    @five_day_weather_data = JSON.parse(self.class.get("/weather?id=#{id}&appid=#{APIKEY}").body)
+    @five_day_weather_data = JSON.parse(self.class.get("/forecast?id=#{id}&appid=#{APIKEY}").body)
   end
 
   def retrieve_coord
